@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="/login.css">
+</head>
+
+<body>
+    <div class="head-top">
+        <div class="hindi">भारतीय प्रौद्योगिकी संस्थान पटना</div>
+        <div class="english">Indian Institute of Technology Patna</div>
+    </div>
+    <h3 class="blip">Application for Faculty Position</h3>
+    <div class="box">
+        <form action="/login" method="post">
+            <div class="form">
+                <h2>Log In</h2>
+                <div style="background-color: red;">
+                    <% if(message) {%>
+                        <%= message %>
+                            <% } %>
+                </div>
+                <div class="inputBox">
+                    <input type="email" name="email" required="required"><Span>Email</Span>
+                    <i></i>
+                </div>
+                <div class="inputBox">
+                    <input type="password" name="password" required="required"><Span>Password</Span>
+                    <i></i>
+                </div>
+                <div class="links">
+                    <a href="/signUp">SignUp</a>
+                </div>
+                <button><input type="submit" value="Login" class="Submit" style="border: none;"></button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

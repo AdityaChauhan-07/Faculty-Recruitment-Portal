@@ -1,0 +1,105 @@
+
+.temp{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    /* border: 1px solid rgb(180, 226, 180); */
+    border-radius: 0.15rem;
+    overflow: hidden;
+}
+#title{
+    height: 60px;
+    width: 100%;
+    background-color: rgb(201, 230, 201);
+    border: 1px solid rgb(180, 226, 180);
+    display: flex;
+    justify-content: start;
+    gap: 20px;
+    align-items: center;
+    padding: 0px 15px;
+}
+#title span{
+    color: rgb(0, 80, 0);
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+#addmore{
+    background-color: #e05555;
+    color: white;
+    border: none;
+    padding: 0.7rem 1rem;
+    border-radius: 0.3rem;
+    transition: all 0.25s ease-out;
+}
+#addmore:hover{
+    background-color: #c12a2a;
+    cursor: pointer;
+}
+#body{
+    padding: 0.75rem 0.75rem 2rem 0.75rem;
+}
+
+
+.delete {
+    background-color: white;
+    border: 1px solid rgb(229, 227, 227);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.delete button{
+    background-color: white;
+    color: #fd8686;
+    font-weight: 900;
+    font-size: x-large;
+    padding: 0.1rem 0.3rem;
+    border: none;
+    transition: all 0.5s ease-out;
+}
+.delete button:hover{
+    color: #ff0000;
+    cursor: pointer;
+}
+
+
+
+.table{
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+th,td {
+    border: 1px solid #ddd;
+    padding: 0px 3px;
+    height: 4rem;
+    text-align: center;
+    vertical-align: middle;
+}
+th{
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    background-color: white;
+}
+.table input{
+    margin: 0.8rem 0rem;
+    width: 90%;
+    height: 60%;
+    font-size: 1rem;
+    border: 1px solid rgb(163, 162, 162);
+    border-radius: 4px;
+    transition: all 0.1s linear;
+    /* border: none; */
+    &:focus-within {
+        box-shadow: 2px 2px 4px rgb(154, 209, 228),-2px -2px 4px rgb(154, 209, 228),2px -2px 4px rgb(154, 209, 228),-2px 2px 4px rgb(154, 209, 228);
+        border: none;
+        outline-style: solid;
+        outline-color:rgb(62, 169, 205);
+    }
+}

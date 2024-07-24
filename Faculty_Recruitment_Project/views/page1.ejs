@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Your Personal Details</title>
+    <link rel="stylesheet" href="page1.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Sintony" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Hind&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="head-top">
+        <div class="hindi">भारतीय प्रौद्योगिकी संस्थान पटना</div>
+        <div class="english">Indian Institute of Technology Patna</div>
+    </div>
+    <h3 class="blip">Application for Faculty Position</h3>
+    <div class="container">
+        <form method="post" action="/page1" encType="multipart/form-data">
+            <legend>
+                <div class="leg-name">
+                    <h4>
+                        Welcome : <font color="#025198">
+                            <strong>Mr&nbsp;<%= data.username %></strong>
+                        </font>
+                    </h4>
+                </div>
+                <div>
+                    <div class="logout"><a href="/login">Logout</a></div>
+                    <div class="change-pas"><a href="http://localhost:8080/changePass?applicationNo=<%=applicationNo%>">Change Password</a></div>
+                </div>
+            </legend>
+            <hr style="opacity: .3;margin-bottom: 10px;">
+            <div id="project-show">
+                <div class="sec1">
+                    <label class="col-md-2 control-label" for="adv_num">Advertisement Number *</label>
+                    <div>
+                        <select name="adv_num" id="adv_num">
+                            <option value="">select</option>
+                            <option selected="selected" value="IITP/FACREC-CHE/2024/APRIL/02">
+                                IITP/FACREC-CHE/2024/APRIL/02</option>
+                        </select>
+                    </div>
+                    <label class="col-md-2 control-label" for="doa">Date of Application </label>
+                    <div class="col-md-4">
+                        <input id="doa" name="doa" type="text" readonly="readonly" value="<%=date%>" placeholder=""
+                            class="form-control input-md fix-input" required="">
+                    </div>
+
+                    <label class="col-md-2 control-label" for="ref_num">Application Number</label>
+                    <div class="col-md-4">
+                        <input id="ref_num" name="ref_num" type="text" readonly="readonly" value="<%= applicationNo %>"
+                            placeholder="" class="form-control input-md fix-input" required="">
+                    </div>
+
+                    <label class="col-md-2 control-label" for="post">Post Applied for *</label>
+                    <div class="col-md-4">
+                        <select id="post" name="post" class="form-control input-md" required="">
+                            <option value="">Select</option>
+                            <option value="Professor" selected>Professor</option>
+                            <option value="Associate Professor">Associate Professor</option>
+                            <option value="Assistant Professor Grade I">Assistant Professor Grade I</option>
+                            <option value="Assistant Professor Grade II">Assistant Professor Grade II</option>
+                        </select>
+                    </div>
+
+                    <label class="col-md-2 control-label" for="dept">Department/School *</label>
+                    <div class="col-md-4">
+                        <select id="dept" name="dept" class="form-control input-md" required="">
+                            <option value="">Select</option>
+                            <option value="Chemical Engineering" >Chemical Engineering</option>
+                            <option value="Computer Engineering">Computer Engineering</option>
+                            <option value="Mechanical Engineering">Mechanical Engineering</option>
+                        </select>
+
+                    </div>
+                </div>
+                <hr style="border:1px dashed; margin-bottom: 20px;">
+                <div class="row">
+                    <div class="head1">
+                        <div>1.Personal Details</div>
+                        <div>Upload/Update Photo*</div>
+                    </div>
+                    <div class="div2">
+                        <div class="sec1 width-specified">
+                            <span class="col-md-2 control-label" for="fname">First Name *</span>
+                            <div class="col-md-4">
+                                <input id="fname" name="fname" type="text" placeholder="First name"
+                                    class="form-control input-md" maxlength="15" required="">
+                            </div>
+
+
+                            <span class="col-md-2 control-label" for="mname">Middle Name</span>
+                            <div class="col-md-4">
+                                <input id="mname" name="mname" name="mname" type="text"
+                                    placeholder="Middle name" class="form-control input-md" maxlength="12">
+                            </div>
+
+                            <span class="col-md-2 control-label" for="lname">Last Name *</span>
+                            <div class="col-md-4">
+                                <input id="lname" name="lname" name="lname" type="text"
+                                    placeholder="Last name" class="form-control input-md" maxlength="15" required="">
+                            </div>
+
+
+                            <span class="col-md-2 control-label" for="nationality">Nationality *</span>
+                            <div class="col-md-4">
+                                <select id="nationality" name="nationality" class="form-control input-md" required="">
+                                    <option value="">Select</option>
+                                    <option value="Indian" selected> Indian</option>
+                                    <option value="OCI" >OCI</option>
+                                </select>
+                            </div>
+                            <span class="col-md-2 control-label" for="dob">Date of Birth <br>DD/MM/YYYY *</span>
+                            <div class="col-md-4">
+                                <input id="dob" name="dob" type="date" placeholder="DD/MM/YYYY"
+                                    class="form-control input-md" required="" onfocusout="ageCalculator()">
+                            </div>
+                            <span class="col-md-2 control-label" for="gender">Gender *</span>
+                            <div class="col-md-4">
+                                <select id="gender" name="gender" class="form-control input-md" required="">
+                                    <option value="">Select</option>
+                                    <option value="Male" selected>Male</option>
+                                    <option value="Female">Female</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                            <span class="col-md-2 control-label" for="mstatus">Marital Status *</span>
+                            <div class="col-md-4">
+                                <select id="mstatus" name="mstatus" class="form-control input-md" required="">
+                                    <option value="">Select</option>
+                                    <option value="Married">Married</option>
+                                    <option selected='selected' value="Unmarried">Unmarried</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                            <span class="col-md-2 control-label" for="cast">Category</span>
+                            <div class="col-md-4">
+                                <input id="cast" name="cast" type="text" placeholder="cast" readonly='readonly'
+                                    value="UR" class="form-control input-md fix-input" required="">
+                            </div>
+                            <span class="col-md-2 control-label" for="mstatus">ID Proof *</span>
+                            <div class="col-md-4">
+
+                                <select id="id_proof" name="id_proof" class="form-control input-md" required="">
+                                    <option value="">Select</option>
+                                    <option value="AADHAR" selected>AADHAR</option>
+                                    <option value="PAN-CARD">PAN-CARD</option>
+                                    <option value="DRIVING-LICENSE">
+                                        DRIVING-LICENSE</option>
+                                    <option value="VOTER ID">VOTER ID</option>
+                                    <option value="PASSPORT">PASSPORT</option>
+                                    <option value="RATION CARD">RATION CARD</option>
+                                    <option value="OTHERS">OTHERS</option>
+                                </select>
+                            </div>
+                            <span class="col-md-2 control-label" for="cast">Update ID Proof</span>
+                            <div>
+                                <div class="col-md-2">
+                                    <a href="" class="btn btn-sm btn-success" target="_blank">View Uploaded File </a>
+                                </div>
+                                <div class="col-md-2">
+                                    <input id="id_card_file" name="userfile2" type="file" class="form-control input-md">
+                                </div>
+                            </div>
+                            <span class="col-md-2 control-label" for="father_name">Father's Name *</span>
+                            <div class="col-md-4">
+                                <input id="father_name"  name="father_name" name="father_name" type="text" placeholder="Father's Name" class="form-control input-md" maxlength="30" required="">
+                            </div>
+                        </div>
+                        <div class="upload-img">
+                            image
+                            <input type="file" name="profile_img">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="sec3">
+                        <div class="col-md-6">
+                            <span class="control-label" for="cadd">Correspondence Address </span>
+
+                            <textarea style="height:40px" placeholder="Street" class="form-control input-md" name="cadd"
+                                maxlength="200" required=""></textarea>
+
+                            <textarea style="height:40" placeholder="City" class="form-control input-md" name="cadd1"
+                                maxlength="200" required=""></textarea>
+
+                            <textarea style="height:40" placeholder="State" class="form-control input-md" name="cadd2"
+                                maxlength="200" required=""></textarea>
+
+                            <textarea style="height:40" placeholder="Country" class="form-control input-md" name="cadd3"
+                                maxlength="200" required=""></textarea>
+
+                            <textarea style="height:40;" placeholder="PIN/ZIP" class="form-control input-md"
+                                name="cadd4" maxlength="6" required=""></textarea>
+                        </div>
+
+
+                        <div class="col-md-6">
+                            <span class="control-label" for="padd">Permanent Address </span>
+                            <textarea style="height:40px" placeholder="Street" class="form-control input-md" name="padd"
+                                maxlength="200" required=""></textarea>
+
+                            <textarea style="height:40" placeholder="City" class="form-control input-md" name="padd1"
+                                maxlength="200" required=""></textarea>
+
+                            <textarea style="height:40" placeholder="State" class="form-control input-md" name="padd2"
+                                maxlength="200" required=""></textarea>
+
+                            <textarea style="height:40" placeholder="Country" class="form-control input-md" name="padd3"
+                                maxlength="200" required=""></textarea>
+
+
+                            <textarea style="height:40;" placeholder="PIN/ZIP" class="form-control input-md"
+                                name="padd4" maxlength="6" required=""></textarea>
+
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="sec4">
+                        <span class="col-md-2 control-label" for="mobile">Mobile *</span>
+                        <div class="col-md-4">
+                            <input id="mobile"  name="mobile" type="number"
+                                placeholder="Mobile" class="form-control input-md" required="" maxlength="20">
+                        </div>
+
+
+
+                        <span class="col-md-2 control-label" for="email">Email</span>
+                        <div class="col-md-4">
+                            <input id="email" name="email" type="text" placeholder="email" readonly='readonly'
+                                value="<%= data.loginEmail %>" class="form-control input-md fix-input" required="">
+                        </div>
+
+                        <span class="col-md-2 control-label" for="mobile_2">Alternate Mobile </span>
+                        <div class="col-md-4">
+                            <input id="mobile_2" name="mobile_2" type="number"
+                                placeholder="Alternate Mobile " class="form-control input-md" maxlength="20">
+                        </div>
+
+                        <span class="col-md-2 control-label" for="email_2">Alternate Email </span>
+                        <div class="col-md-4">
+                            <input id="email_2" name="email_2" type="email"
+                                placeholder="Alternate Email" class="form-control input-md">
+                        </div>
+
+
+                        <span class="col-md-2 control-label" for="landline">Landline Number</span>
+                        <div class="col-md-4">
+                            <input id="landline" name="landline" type="number" placeholder="Landline Number"
+                                class="form-control input-md" maxlength="20">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <button id="submit" type="submit" name="submit" value="Submit"
+                        class="btn btn-success pull-right">SAVE & NEXT</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

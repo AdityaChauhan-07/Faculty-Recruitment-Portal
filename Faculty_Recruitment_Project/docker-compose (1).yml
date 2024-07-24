@@ -1,0 +1,42 @@
+version: "3.8"
+
+services:
+  mysqldb:
+    image: mysql:latest
+    container_name: mysql-db-container
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: "password"
+      MYSQL_DATABASE: "faculty"
+    volumes:
+      - mysqldb_data:/var/lib/mysql
+    ports:
+      - "3307:3306"
+    networks:
+      - internalnetwork
+
+  node-server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: node-server-container
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    depends_on:
+      - delta
+    environment:
+      DB_HOST: "delta"
+      DB_PORT: 3306
+      DB_USER: "root"
+      DB_PASSWORD: "password"
+      DB_NAME: "faculty"
+    networks:
+      - internalnetwork
+
+networks:
+  internalnetwork:
+    driver: bridge
+
+volumes:
+  mysqldb_data:

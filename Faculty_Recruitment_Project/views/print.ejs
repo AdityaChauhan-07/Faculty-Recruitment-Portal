@@ -1,0 +1,1212 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IIT_PATNA</title>
+    <link rel="stylesheet" type="text/css" href="https://ofa.iiti.ac.in/facrec_che_2023_july_02/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="https://ofa.iiti.ac.in/facrec_che_2023_july_02/css/bootstrap-datepicker.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300&display=swap"
+        rel="stylesheet">
+    <link rel="icon"
+        href="https://upload.wikimedia.org/wikipedia/en/thumb/5/52/Indian_Institute_of_Technology%2C_Patna.svg/1200px-Indian_Institute_of_Technology%2C_Patna.svg.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style type="text/css">
+        body {
+            background-image: linear-gradient(to right, #00b09b, #96c93d);
+            padding-top: 0px !important;
+        }
+
+        .container-fluid {
+            background-image: linear-gradient(to right, #b6fbff, #83a4d4);
+            margin-top: 0px;
+        }
+
+        h3 {
+            text-align: center;
+            font-weight: bold;
+            margin-top: 10px;
+            font-size: 2.3em;
+            font-family: 'Noto Sans', sans-serif;
+        }
+
+        .row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .col-md-10 {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+
+<body style="font-family:Arial,sans-serif; background-color: #0a5398 !important;;">
+	<style>
+        
+@page { margin:0.5in 0.5in 0.5in 0.5in; }
+
+.receipt {
+    margin:0 auto 1in auto;
+    /*font-family:"verdana",monospace;*/
+    border:solid #000;
+    padding:0 0.25in;
+    width:10in;
+    min-height:2.5in;
+    height: auto;
+    /*page-break-inside:avoid;
+    page-break-before:auto;
+    page-break-after:auto;*/
+    /*word-wrap: break-word;*/
+}
+
+.receipt div {
+    margin:0;
+    margin-bottom:0.1in;
+    padding:0;
+
+
+}
+  body{
+	  background-color: rgb(180, 218, 180);
+  }
+.receipt span {
+    display:inline-block;
+    line-height:2;
+}
+
+.receipt p, .receipt span {
+    margin:0; padding:0;
+
+
+}
+
+.title {
+    font-family:Arial,sans-serif;
+    font-size:1.5em;
+    color: #191717;
+    font-weight:bold;
+    width:100%;
+}
+
+.label {
+    font-weight:bold;
+    color: #a40a0b;
+    background-color: #f1f1d1;
+    margin-bottom: 10px!important;
+    padding-left: 5px!important;
+    padding-right: 5px!important;
+    border-radius: 5px;
+    font-size: 1.1em;
+}
+
+.date, .payee, .phone, .signature {
+    border-bottom:solid thin #444;
+}
+
+.payee, .signature { width:2in; }
+
+.phone, .date  { width:1.25in; }
+
+.amount, .payer {
+    font-style:italic;
+    text-decoration:underline;
+}
+.tab{
+  border-collapse: collapse;
+  width: 100%;
+  /*word-break: break-all;
+  word-wrap: break-word;*/
+
+  /*background-color: green;*/
+  /*word-wrap: break-word!important;*/
+
+  /*white-space: pre-line!important;*/
+  /*overflow:auto!important;*/
+}
+.tab td{
+  border:1px solid #CCC !important;
+  padding-left: 10px;
+  /*background-color:#DDFFFF;*/
+
+  word-wrap: break-word!important;
+  /*white-space: pre-line!important;*/
+  /*overflow:auto!important;*/
+  /*background-color: red;*/
+
+}
+.receipt_left{
+  float: left;
+  width:5.5in;
+  /*word-wrap: break-word;*/
+}
+.receipt_right{
+  float: right;
+  width:1.5in;
+  /*word-wrap: break-word;*/
+}
+
+.receipt_left1{
+  float: left;
+  width:4.5in;
+  /*word-wrap: break-word;*/
+}
+.receipt_right1{
+  float: right;
+  width:4.5in;
+  /*word-wrap: break-word;*/
+}
+
+.receipt_right img
+{
+  height: 1in;
+  width: 0.8in;
+  padding: 2px;
+  border: 1px solid #CCC;
+}
+
+.receipt_center{
+  /*float: left;*/
+  width:auto;
+  height: 120px;
+  /*word-wrap: break-word;*/
+}
+
+th
+{
+text-align: left;
+}
+.ccc{
+	background-color: #e7e9eb;
+}
+.tr_title
+{
+color: #0a5398;
+}
+
+    </style>
+	<div class="ccc">
+	<div class="receipt">
+		
+		<hr>
+			<div class="title">IIT PATNA FACULTY RECRUITMENT</div>
+	<div class="receipt_left">
+		<p style="width:10in;">Advertisement Number : <%=page1[0].adv_num%></p>
+		<p>Date of Application : <%=page1[0].doa%></p>
+		<p>Post Applied for : <%=page1[0].post%>r</p>
+		<p>Department : <%=page1[0].dept%></p>
+		<p>Application Number : <%=page1[0].app_num%></p>
+		
+	</div>
+	<div class="receipt_right" style="margin-top: -30px;">
+				<img src="/uploadedfile/<%= page1[0].profile_img %>" alt="ProfileImage" />
+	</div>
+	<div style="clear:both"></div>
+	<div>
+	<span class="label">1. Personal Details</span>
+
+	<table class="tab">
+		<tr style="background-color:#f1f1f1;">
+			<td><strong class="tr_title">First Name</strong></td>
+			<td><strong class="tr_title">Middle Name</strong></td>
+			<td><strong class="tr_title">Last Name</strong></td>
+		</tr>
+				<tr>
+			<td><%=page1[0].fname %></td> 
+			<td><%=page1[0].mname %></td>
+            <td><%=page1[0].lname %></td>
+
+		</tr>
+	</table>
+	<br />
+	
+
+	<table class="tab">
+		<tr style="background-color:#f1f1f1;">
+			<td><strong class="tr_title">Date of Birth</strong></td>
+			<!-- <td><strong class="tr_title">Age</strong></td> -->
+			<td><strong class="tr_title">Gender</strong></td>
+			<td><strong class="tr_title">Marital Status</strong></td>
+			<td><strong class="tr_title">Category</strong></td>
+			<td><strong class="tr_title">Nationality</strong></td>
+			<td><strong class="tr_title">ID Proof</strong></td>
+
+		</tr>
+				<tr>
+			<td><%=page1[0].dob%></td>
+			<!-- <td></td> -->
+			<td><%=page1[0].gender%></td>
+			<td><%=page1[0].mstatus%></td>
+			<td><%=page1[0].cast%></td>
+			<td> <%=page1[0].nationality%></td>
+			<td><%=page1[0].id_proof%></td>
+		</tr>
+		<tr>
+			<td><strong>Father's Name</strong></td>
+			<td colspan="6"><%=page1[0].father_name%></td>
+
+		</tr>
+	</table>
+	<br />
+
+	<table class="tab">
+		<tr style="background-color:#f1f1f1; ">
+			<td  width="50%" ><strong class="tr_title">Current Address </strong></td>
+			<td width="50%"><strong class="tr_title">Permanent Address </strong></td>
+			
+		</tr>
+		
+		<tr style="height: 50px;">
+			<td><%=page1[0].cadd+" "+page1[0].cadd1+' '+page1[0].cadd2+' '+page1[0].cadd3+' ' +page1[0].cadd4%></td>
+			<td><%=page1[0].padd+' '+page1[0].padd1+' '+page1[0].padd2+' '+page1[0].padd3+' '+page1[0].padd4%></td>
+					
+		</tr>
+		
+	
+	</table>
+	<br />
+	
+	<span class="label"></span>
+	<table class="tab">
+		<!-- <tr>
+			<td colspan="2"><strong>Mobile & Email</strong></td>
+			
+		</tr> -->
+				<tr>
+			<td style="background-color:#f1f1f1;"><strong class="tr_title">Mobile</strong></td>
+			<td><%=page1[0].mobile%></td>
+		</tr>
+
+		<tr>
+			<td style="background-color:#f1f1f1;"><strong class="tr_title">Alternate Mobile</strong></td>
+			<td><%=page1[0].mobile_2%></td>
+		</tr>
+
+		<tr>
+			<td style="background-color:#f1f1f1;"><strong class="tr_title">Landline Phone No.</strong></td>
+			<td><%=page1[0].landline%></td>
+		</tr>
+
+		<tr>
+			<td style="background-color:#f1f1f1;"><strong class="tr_title">E-mail</strong></td>
+			<td><%=page1[0].email%></td>
+		</tr>
+
+		<tr>
+			<td style="background-color:#f1f1f1;"><strong class="tr_title">Alternate E-mail</strong></td>
+			<td><%=page1[0].email_2%></td>
+		</tr>
+
+		
+		
+		
+		
+		
+	</table>
+	<br />
+
+	<span class="label">2. Educational Qualifications</span>
+	<table class="tab">
+
+		<tr style="background-color:#f1f1f1;">
+			<td colspan="6" class="tr_title"><strong>(A) Ph. D. Details</strong></td>
+		</tr>
+		
+		<tr>
+			<td width="30%"><strong>University/<br />Institute</strong></td>
+			<td width="12%"><strong>Department</strong></td>
+			<td width="17%"><strong>Name of Ph. D. <br />Supervisor</strong></td>
+			<td width="10%"><strong>Year of <br />Joining</strong></td>
+			<td width="15%"><strong>Date of <br />successful <br />thesis Defence</strong></td>
+			<td width="15%"><strong>Date of <br />Award</strong></td>
+		</tr>
+		
+				<tr>
+
+					
+			<td><%= page2abc[0].college_phd %></td>
+			<td><%= page2abc[0].stream %></td>
+			<td><%= page2abc[0].supervisor %></td>
+			<td><%= page2abc[0].yoj_phd %></td>
+			<td><%= page2abc[0].dod_phd %></td>
+			<td><%= page2abc[0].doa_phd %></td>
+
+
+		</tr>
+
+		<tr>
+			<td><strong>Title of Ph. D. Thesis</strong></td>
+			<td colspan="5"><%= page2abc[0].phd_title %></td>
+		</tr>
+		
+			</table>
+	<br />
+
+	<table class="tab">
+
+		<tr style="background-color:#f1f1f1;">
+			<td colspan="8" class="tr_title"><strong>(B) Academic Details - PG</strong></td>
+		</tr>
+		
+
+		<tr>
+			<td width="10%"><strong>Degree</strong></td>
+			<td width="25%"><strong>University/<br />Institute</strong></td>
+			<td width="20%"><strong>Subjects</strong></td>
+			<td width="10%"><strong>Year of <br />Joining</strong></td>
+			<td width="12%"><strong>Year of <br />Graduation</strong></td>
+			<td width="10%"><strong>Duration <br />(in years)</strong></td>
+			<td width="30%"><strong>Percentage/CGPA </strong></td>
+			<td width="30%"><strong>Division/Class </strong></td>
+			
+
+			
+		</tr>
+				<tr>
+					<td><%= page2abc[0].pg_degree %></td>
+					<td><%= page2abc[0].pg_college %></td>
+					<td><%= page2abc[0].pg_subjects %></td>
+					<td><%= page2abc[0].pg_yoj %></td>
+					<td><%= page2abc[0].pg_yog %></td>
+					<td><%= page2abc[0].pg_duration %></td>
+					<td><%= page2abc[0].pg_perce %></td>
+					<td><%= page2abc[0].pg_rank %></td>
+
+		</tr>
+			</table>
+	<br />
+
+	<table class="tab">
+
+		<tr style="background-color:#f1f1f1;">
+			<td colspan="8" class="tr_title"><strong>(C) Academic Details - UG</strong></td>
+		</tr>
+
+		<tr>
+			<td width="10%"><strong>Degree</strong></td>
+			<td width="25%"><strong>University/<br />Institute</strong></td>
+			<td width="20%"><strong>Subjects</strong></td>
+			<td width="10%"><strong>Year of <br />Joining</strong></td>
+			<td width="12%"><strong>Year of <br />Graduation</strong></td>
+			<td width="10%"><strong>Duration <br />(in years)</strong></td>
+			<td width="30%"><strong>Percentage/CGPA </strong></td>
+			<td width="30%"><strong>Division/Class </strong></td>
+			
+
+			
+		</tr>
+				<tr>
+					<td><%= page2abc[0].ug_degree %></td>
+					<td><%= page2abc[0].ug_college %></td>
+					<td><%= page2abc[0].ug_subjects %></td>
+					<td><%= page2abc[0].ug_yoj %></td>
+					<td><%= page2abc[0].ug_yog %></td>
+					<td><%= page2abc[0].ug_duration %></td>
+					<td><%= page2abc[0].ug_perce %></td>
+					<td><%= page2abc[0].ug_rank %></td>
+
+
+		</tr>
+			</table>
+	<br />
+
+	<table class="tab">
+
+		<tr style="background-color:#f1f1f1;">
+			<td colspan="8" class="tr_title"><strong>(D) Academic Details - School</strong></td>
+		</tr>
+
+		<tr>
+			<td width="20%"><strong>10th/12th/HSC/Diploma</strong></td>
+			<td width="20%"><strong>School</strong></td>
+			<td width="15%"><strong>Year of Passing</strong></td>
+			<td width="15%"><strong>Percentage/CGPA</strong></td>
+			<td width="15%"><strong>Division/Class</strong></td>
+			
+
+			
+		</tr>
+				<tr>
+			<td>10th</td>
+			<td><%= page2d[0].school %></td>
+			<td><%= page2d[0].passing_year %></td>
+			<!-- <td></td> -->
+			<td><%= page2d[0].s_perce %></td>
+			<td><%= page2d[0].s_rank %></td>
+			
+		</tr>
+				<tr>
+					<td>12th</td>
+					<td><%= page2d[0].school %></td>
+					<td><%= page2d[0].passing_year %></td>
+			<!-- <td></td> -->
+					<td><%= page2d[0].s_perce %></td>
+					<td><%= page2d[0].s_rank %></td>
+			
+		</tr>
+			</table>
+	<br />
+	<table class="tab">
+		<tr style="background-color:#f1f1f1;">
+			<td colspan="8" class="tr_title"><strong>(E) Additional Educational Qualifications (If any) </strong></td>
+		</tr>
+		
+		<tr>
+			<td width="10%"><strong>Degree</strong></td>
+			<td width="25%"><strong>University/<br />Institute</strong></td>
+			<td width="20%"><strong>Subjects</strong></td>
+			<td width="10%"><strong>Year of <br />Joining</strong></td>
+			<td width="12%"><strong>Year of <br />Graduation</strong></td>
+			<td width="10%"><strong>Duration <br />(in years)</strong></td>
+			<td width="30%"><strong>Percentage/CGPA </strong></td>
+			<td width="30%"><strong>Division/Class </strong></td>
+		</tr>
+			
+
+		<% for (let i = 0; i < page2e.length; i++) { %>
+			<tr>
+				<td><%= page2e[i].add_degree %></td>
+				<td><%= page2e[i].add_college %></td>
+				<td><%= page2e[i].add_subjects %></td>
+				<td><%= page2e[i].add_yoj %></td>
+				<td><%= page2e[i].add_yog %></td>
+				<td><%= page2e[i].add_duration %></td>
+				<td><%= page2e[i].add_perce %></td>
+				<td><%= page2e[i].add_rank %></td>
+			</tr>
+		<% } %>
+		
+			
+		
+				
+			
+			
+			
+			
+			
+			
+			</table>
+	<br />
+
+	<span class="label">3. Employment Details </span>
+
+	<table class="tab">
+
+		<tr style="background-color:#f1f1f1;">
+			<td colspan="5" class="tr_title"><strong>(A) Present Employment</strong></td>
+		</tr>
+		
+
+		<tr>
+			<td width="20"><strong>Position </strong></td>
+			<td width="30"><strong>Organization/Institution</strong></td>
+			<td width="15"><strong>Date of <br />Joining</strong></td>
+			<td width="15"><strong>Date of <br />Leaving </strong></td>
+			<td width="15"><strong>Duration <br />(in years)</strong></td>
+		</tr>
+
+
+		<% for (let i = 0; i < page3a.length; i++) { %>
+			<tr>
+				<td><%= page3a[i].pres_emp_position %></td>
+				<td><%= page3a[i].pres_emp_employer %></td>				
+				<td><%= page3a[i].pres_emp_doj %></td>
+				<td><%= page3a[i].pres_emp_dol %></td>
+				<td><%= page3a[i].pres_emp_duration %></td>
+				
+			</tr>
+		<% } %>
+			</table>
+	<br />
+
+	<span class="label"> </span>
+	<table class="tab">
+		<tr style="background-color:#f1f1f1;">
+			<td colspan="5" class="tr_title"><strong>(B) Employment History (After PhD )</strong></td>
+		</tr>
+		
+		<tr>
+			<td width="20"><strong>Position </strong></td>
+			<td width="30"><strong>Organization/Institution</strong></td>
+			<td width="15"><strong>Date of <br />Joining</strong></td>
+			<td width="15"><strong>Date of <br />Leaving </strong></td>
+			<td width="15"><strong>Duration <br />(in years)</strong></td>
+		</tr>
+		<% for (let i = 0; i < page3b.length; i++) { %>
+			<tr>
+				<td><%= page3b[i].position %></td>
+				<td><%= page3b[i].employer %></td>				
+				<td><%= page3b[i].doj %></td>
+				<td><%= page3b[i].dol %></td>
+				<td><%= page3b[i].exp_duration %></td>
+			</tr>
+		<% } %>
+		
+		<tr>
+						<tr>
+				<td colspan="5">Experience : Minimum 10 years’ experience of which at least 4 years should be at the level of Associate Professor in IITs, IISc Bangalore, IIMs, NITIE Mumbai and IISERs. <strong style="color:red;">No</strong></td>
+			</tr>
+
+
+					</tr>
+	</table>
+	<br />
+
+	<table class="tab">
+		<tr style="background-color:#f1f1f1;">
+			<td colspan="8" class="tr_title"><strong>(C) Teaching Experience (After PhD)</strong></td>
+		</tr>
+		
+		<tr>
+			<!-- <td><strong>S. No.</strong></td> -->
+			<td width="25%"><strong>Position</strong></td>
+			<td width="30%"><strong>Employer</strong></td>
+			<td width="30%"><strong>Course Taught</strong></td>
+			<td width="30%"><strong>UG/PG</strong></td>
+			<td width="30%"><strong>No. of Students</strong></td>
+			<td width="10%"><strong>Date of <br />Joining</strong></td>
+			<td width="10%"><strong>Date of <br />Leaving</strong></td>
+			<td width="10%"><strong>Duration</strong></td>
+		</tr>
+		<% for (let i = 0; i < page3c.length; i++) { %>
+			<tr>
+				<td><%= page3c[i].te_position %></td>
+				<td><%= page3c[i].te_employer %></td>				
+				<td><%= page3c[i].te_course %></td>
+				<td><%= page3c[i].te_ug_pg %></td>
+				<td><%= page3c[i].te_no_stu %></td>
+				<td><%= page3c[i].te_doj %></td>
+				<td><%= page3c[i].te_dol %></td>
+				<td><%= page3c[i].te_duration %></td>
+			</tr>
+		<% } %>
+		
+	</table>
+	<br />
+
+	<table class="tab">
+		<tr style="background-color:#f1f1f1">
+			<td colspan="6" class="tr_title"><strong>(D) Research Experience </strong></td>
+		</tr>
+		
+		<tr>
+			<!-- <td><strong>S. No.</strong></td> -->
+			<td width="20%"><strong>Position</strong></td>
+			<td width="20%"><strong>Institute</strong></td>
+			<td width="20%"><strong>Supervisor</strong></td>
+			<td width="10%"><strong>Date of <br />Joining</strong></td>
+			<td width="10%"><strong>Date of <br />Leaving</strong></td>
+			<td width="10%"><strong>Duration</strong></td>
+		</tr>
+		<% for (let i = 0; i < page3d.length; i++) { %>
+			<tr>
+				<td><%= page3d[i].r_exp_position %></td>
+				<td><%= page3d[i].r_exp_institute %></td>				
+				<td><%= page3d[i].r_exp_supervisor %></td>
+				<td><%= page3d[i].r_exp_doj %></td>
+				<td><%= page3d[i].r_exp_dol %></td>
+				<td><%= page3d[i].r_exp_duration %></td>
+			</tr>
+		<% } %>
+			</table>
+	<br />
+
+	<table class="tab">
+		<tr style="background-color:#f1f1f1">
+			<td colspan="5"><strong  class="tr_title">(E) Industrial Experience </strong></td>
+		</tr>
+		
+		<tr>
+			<!-- <td><strong>S. No.</strong></td> -->
+			<td width="20%"><strong>Organization</strong></td>
+			<td width="20%"><strong>Work Profile</strong></td>
+			<td width="10%"><strong>Date of <br />Joining</strong></td>
+			<td width="10%"><strong>Date of <br />Leaving</strong></td>
+			<td width="10%"><strong>Duration</strong></td>
+		</tr>
+		<% for (let i = 0; i < page3e.length; i++) { %>
+			<tr>
+				<td><%= page3e[i].org %></td>
+				<td><%= page3e[i].work %></td>				
+				<td><%= page3e[i].ind_doj %></td>
+				<td><%= page3e[i].ind_dol %></td>
+				<td><%= page3e[i].period %></td>
+			
+			</tr>
+		<% } %>
+			</table>
+	<br />
+
+	<span class="label">4.  Area(s) of Specialization and Current Area(s) of Research</span>
+	<table class="tab">
+			<!-- <tr style="background-color:#f1f1f1"> 
+				<td><strong class="tr_title">4. Area(s) of Specialization & Current Area(s) of Research</strong></td>
+			</tr> -->
+						<tr>
+				<td width="25%" style="background-color: #f1f1f1;"><strong class="tr_title">Area(s) of Specialization</strong></td>
+				<td><%= page3f4 && page3f4.length > 0 ? page3f4[0].area_spl : 'No data available' %></td>
+
+			</tr>
+
+			<tr>
+				<td width="25%" style="background-color: #f1f1f1;"><strong class="tr_title">Current Area(s) of Research</strong></td>
+				<td><%= page3f4 && page3f4.length > 0 ? page3f4[0].area_rese : 'No data available' %></td>
+
+			</tr>
+
+			
+		</table>
+		<br />
+		
+
+		<span class="label">5. Summary of Publications</span>
+		<table class="tab">
+			
+
+			
+			<tr>
+				<td width="50%"><strong>Number of International Journal Papers  </strong></td>
+				<td><%= page4summary[0].summary_journal_inter %>  </td>
+			</tr>
+
+			<tr>
+				<td width="50%"><strong>Number of National Journal Papers  </strong></td>
+				<td><%= page4summary[0].summary_journal %>  </td>
+			</tr>
+
+			<tr>
+				<td><strong> Number of International Conference Papers </strong></td>
+				<td><%= page4summary[0].summary_conf_inter %> </td>
+			</tr>
+
+			<tr>
+				<td><strong> Number of National Conference Papers </strong></td>
+				<td><%= page4summary[0].summary_conf_national %></td>
+			</tr>
+
+			<tr>
+				<td><strong> Number of Patent(s) </strong></td>
+				<td><%= page4summary[0].patent_publish %></td>
+			</tr>
+
+			<tr>
+				<td><strong> Number of Book(s) </strong></td>
+				<td><%= page4summary[0].summary_book %></td>
+			</tr>
+
+			<tr>
+				<td><strong>Number of Book Chapter(s) </strong></td>
+				<td><%= page4summary[0].summary_book_chapter %></td>
+			</tr>
+			
+			
+					</table>
+		<br />
+
+
+		<span class="label">6. List of 10 Best Research Publications (Journal/Conference)</span>
+		<table class="tab">
+			<tr style="background-color:#f1f1f1;">
+				<td colspan="8"><strong class="tr_title">(A) Journals(s)</strong></td>
+			</tr>
+			<tr>
+				<td width="5%"><strong>S. No.</strong></td>
+				<td width="25%"><strong>Author(s) </strong></td>
+				<td width="30%"><strong>Title</strong></td>
+				<td width="25%"><strong>Name of Journal</strong></td>
+				<td width="10%"><strong>Year, Vol., Page</strong></td>
+				<td width="5%"><strong>Impact Factor</strong></td>
+				<td width="1%"><strong>DOI</strong></td>
+				<td width="5%"><strong>Status</strong></td>
+			</tr>
+			<% for (let i = 0; i < page4publication.length; i++) { %>
+				<tr>
+					<td><%= i + 1 %></td>
+					<td><%= page4publication[i].author %></td>				
+					<td><%= page4publication[i].title %></td>
+					<td><%= page4publication[i].journal %></td>
+					<td><%= page4publication[i].year %></td>
+					<td><%= page4publication[i].impact %></td>
+					<td><%= page4publication[i].doi %></td>
+					<td><%= page4publication[i].status %></td>
+				</tr>
+			<% } %>
+					</table>
+		<br />
+		
+		<!-- <table class="tab">
+			<tr style="background-color:#f1f1f1;">
+				<td colspan="3"><strong class="tr_title">(B) Conference(s)</strong></td>
+			</tr>
+			<tr>
+				<td width="20%"><strong>Name of the Conference </strong></td>
+				<td width="20%"><strong>Title of Paper</strong></td>
+				<td width="10%"><strong>Year</strong></td>
+			</tr>
+					</table>
+		<br />	 -->
+
+		<span class="label">7. List of Patent(s), Book(s), Book Chapter(s)</span>
+		<table class="tab">
+			<tr style="background-color:#f1f1f1;">
+				<td colspan="8"><strong class="tr_title">(A) Patent(s)</strong></td>
+			</tr>
+			<tr>
+				<td width="5%"><strong>S. No.</strong></td>
+				<td width="20%"><strong>Inventor(s) </strong></td>
+				<td width="20%"><strong>Title of Patent</strong></td>
+				<td width="15%"><strong>Country of<br /> Patent</strong></td>
+				<td width="10%"><strong>Patent <br />Number</strong></td>
+				<td width="10%"><strong>Date of <br />Filing</strong></td>
+				<td width="10%"><strong>Date of <br />Published</strong></td>
+				<td width="10%"><strong>Status<br />Filed/Published</strong></td>
+			</tr>
+			
+			<% for (let i = 0; i < page4patents.length; i++) { %>
+				<tr>
+					<td><%= i + 1 %></td>
+					<td><%= page4patents[i].pauthor %></td>				
+					<td><%= page4patents[i].ptitle %></td>
+					<td><%= page4patents[i].p_country %></td>
+					<td><%= page4patents[i].p_number %></td>
+					<td><%= page4patents[i].pyear_filed %></td>
+					<td><%= page4patents[i].pyear_published %></td>
+					<td><%= page4patents[i].pyear_issued %></td>
+				</tr>
+			<% } %>
+					</table>
+		<br />	
+
+	<table class="tab">
+		<tr style="background-color:#f1f1f1;">
+			<td colspan="5"><strong class="tr_title">(B) Book(s)</strong></td>
+		</tr>
+		<tr>
+			<td width="5%"><strong>S. No.</strong></td>
+			<td width="30%"><strong>Author(s) </strong></td>
+			<td width="40%"><strong>Title of the Book</strong></td>
+			<td width="20%"><strong>Year of Publication</strong></td>
+			<td width="10%"><strong>ISBN</strong></td>
+			
+		</tr>
+		<% for (let i = 0; i < page4books.length; i++) { %>
+			<tr>
+				<td><%= i + 1 %></td>
+				<td><%= page4books[i].bauthor %></td>				
+				<td><%= page4books[i].btitle %></td>
+				<td><%= page4books[i].byear %></td>
+				<td><%= page4books[i].bisbn %></td>
+				
+			</tr>
+		<% } %>
+			</table>
+	<br />
+
+	<table class="tab">
+		<tr style="background-color:#f1f1f1;">
+			<td colspan="5"><strong class="tr_title">(C) Book Chapter(s)</strong></td>
+		</tr>
+		<tr>
+			<td width="5%"><strong>S. No.</strong></td>
+			<td width="30%"><strong>Author(s) </strong></td>
+			<td width="40%"><strong>Title of the Book Chapter</strong></td>
+			<td width="20%"><strong>Year of Publication</strong></td>
+			<td width="10%"><strong>ISBN</strong></td>
+			
+		</tr>
+		<% for (let i = 0; i < page4bookchapters.length; i++) { %>
+			<tr>
+				<td><%= i + 1 %></td>
+				<td><%= page4bookchapters[i].bc_author %></td>				
+				<td><%= page4bookchapters[i].bc_title %></td>
+				<td><%= page4bookchapters[i].bc_year %></td>
+				<td><%= page4bookchapters[i].bc_isbn %></td>
+				
+			</tr>
+		<% } %>
+			</table>
+	<br />
+
+	<span class="label">8. Google Scholar Link </span>
+	<table class="tab">
+		<tr style="background-color:#f1f1f1;">
+			<td colspan="6"><strong class="tr_title">URL</strong></td>
+		</tr>
+		<tr>
+			<td width="12%"><a href="<%=page4googlescholar[0].google_scholar_link%>" target="_blank"><%=page4googlescholar[0].google_scholar_link   %>></a></td>
+		</tr>
+		
+	</table>
+	<br />
+
+	<span class="label">9. Membership of Professional Societies </span>
+	<table class="tab">
+		<tr style="background-color:#f1f1f1;">
+			<td colspan="3"><strong class="tr_title">Details</strong></td>
+		</tr>
+		
+		<tr>
+			<td width="3%"><strong>S. No.</strong></td>
+			<td width="20%"><strong>Name of the Professional Society</strong></td>
+			<td width="20%"><strong>Membership Status (Lifetime/Annual)</strong></td>
+		</tr>
+
+		<% for (let i = 0; i < page5societymem.length; i++) { %>
+			<tr>
+				<td><%= i + 1 %></td>
+							
+				<td><%= page5societymem[i].mname %></td>
+				<td><%= page5societymem[i].mstatus %></td>
+				
+				
+			</tr>
+		<% } %>
+
+			</table>
+	<br />
+
+	<span class="label">10. Professional Training </span>
+	<table class="tab">
+		<tr style="background-color:#f1f1f1;">
+			<td colspan="5"><strong class="tr_title">Details</strong></td>
+		</tr>
+		
+		<tr>
+			<td width="5%"><strong>S. No.</strong></td>
+			<td width="20%"><strong>Type of Training Received</strong></td>
+			<td width="20%"><strong>Organisation</strong></td>
+			<td width="10%"><strong>Year</strong></td>
+			<td width="10%"><strong>Duration</strong></td>
+		</tr>
+		<% for (let i = 0; i < page5training.length; i++) { %>
+			<tr>
+				<td><%= i + 1 %></td>
+				<td><%= page5training[i].trg %></td>				
+				<td><%= page5training[i].porg%></td>
+				<td><%= page5training[i].pyear %></td>
+				<td><%= page5training[i].pduration %></td>
+				
+			</tr>
+		<% } %>
+			</table>
+	<br />
+	
+	<span class="label">11. Award(s) and Recognition(s) </span>
+	<table class="tab">
+		<tr style="background-color:#f1f1f1;">
+			<td colspan="4"><strong class="tr_title">Details</strong></td>
+		</tr>
+		
+		<tr>
+			<td width="5%"><strong>S. No.</strong></td>
+			<td width="20%"><strong>Name of Award</strong></td>
+			<td width="20%"><strong>Awarded By</strong></td>
+			<td width="10%"><strong>Year</strong></td>
+		</tr>
+		<% for (let i = 0; i < page5awards.length; i++) { %>
+			<tr>
+				<td><%= i + 1 %></td>
+				<td><%= page5awards[i].award_nature %></td>				
+				<td><%= page5awards[i].award_org %></td>
+				<td><%= page5awards[i].award_year %></td>
+				
+				
+			</tr>
+		<% } %>
+		
+			</table>
+	<br />
+
+	<span class="label">12. Research Supervision</span>
+	<table class="tab">
+		<tr style="background-color:#f1f1f1;">
+			<td colspan="6"><strong class="tr_title">(A) PhD Thesis Supervision</strong></td>
+		</tr>
+		<tr>
+			<td width="5%"><strong>S. No.</strong></td>
+			<td width="25%"><strong>Name of Student/Research Scholar</strong></td>
+			<td width="30%"><strong>Title of Thesis</strong></td>
+			<td width="10%"><strong>Role</strong></td>
+			<td width="10%"><strong>Ongoing/Completed</strong></td>
+			<td width="10%"><strong>Ongoing Since/ Year of Completion</strong></td>
+		</tr>
+		<% for (let i = 0; i < page6phdthesis.length; i++) { %>
+			<tr>
+				<td><%= i + 1 %></td>
+				<td><%= page6phdthesis[i].phd_scholar %></td>				
+				<td><%= page6phdthesis[i].phd_thesis %></td>
+				<td><%= page6phdthesis[i].phd_role %></td>
+				<td><%= page6phdthesis[i].phd_ths_status %></td>
+				<td><%= page6phdthesis[i].phd_ths_year %></td>
+				
+				
+			</tr>
+		<% } %>
+			</table>
+	<br />
+
+	<table class="tab">
+		<tr style="background-color:#f1f1f1;">
+			<td colspan="6"><strong class="tr_title">(B) M.Tech/M.E./Master's Thesis Supervision</strong></td>
+		</tr>
+		
+		<tr>
+			<td width="5%"><strong>S. No.</strong></td>
+			<td width="25%"><strong>Name of Student/Research Scholar</strong></td>
+			<td width="30%"><strong>Title of Thesis</strong></td>
+			<td width="10%"><strong>Role</strong></td>
+			<td width="10%"><strong>Ongoing/Completed</strong></td>
+			<td width="10%"><strong>Ongoing Since/ Year of Completion</strong></td>
+		</tr>
+		<% for (let i = 0; i < page6masters.length; i++) { %>
+			<tr>
+				<td><%= i + 1 %></td>
+				<td><%= page6masters[i].pg_scholar %></td>				
+				<td><%= page6masters[i].pg_thesis %></td>
+				<td><%= page6masters[i].pg_role %></td>
+				<td><%= page6masters[i].pg_status %></td>
+				<td><%= page6masters[i].pg_ths_year %></td>
+				
+				
+			</tr>
+		<% } %>
+		
+	</table>
+	<br />
+
+	<table class="tab">
+		<tr style="background-color:#f1f1f1;">
+			<td colspan="6"><strong class="tr_title">(C) B.Tech/B.E./Bachelor's Project Supervision</strong></td>
+		</tr>
+		
+		<tr>
+			<td width="5%"><strong>S. No.</strong></td>
+			<td width="25%"><strong>Name of Student</strong></td>
+			<td width="30%"><strong>Title of Project</strong></td>
+			<td width="10%"><strong>Role</strong></td>
+			<td width="10%"><strong>Ongoing/Completed</strong></td>
+			<td width="10%"><strong>Ongoing Since/ Year of Completion</strong></td>
+		</tr>
+		<% for (let i = 0; i < page6bachelors.length; i++) { %>
+			<tr>
+				<td><%= i + 1 %></td>
+				<td><%= page6bachelors[i].ug_scholar %></td>				
+				<td><%= page6bachelors[i].ug_thesis %></td>
+				<td><%= page6bachelors[i].ug_role %></td>
+				<td><%= page6bachelors[i].ug_status %></td>
+				<td><%= page6bachelors[i].ug_ths_year %></td>
+				
+				
+			</tr>
+		<% } %>
+		
+	</table>
+	<br />
+
+	<span class="label">13. Sponsored Projects/ Consultancy Details </span>
+	<table class="tab">
+		<tr style="background-color:#f1f1f1;">
+			<td colspan="7"><strong class="tr_title">(A) Sponsored Projects</strong></td>
+		</tr>
+		
+		<tr>
+			<td width="5%"><strong>S. No.</strong></td>
+			<td width="20%"><strong>Sponsoring Agency</strong></td>
+			<td width="20%"><strong>Title of Project</strong></td>
+			<td width="10%"><strong>Sanctioned Amount</strong></td>
+			<td width="10%"><strong>Period</strong></td>
+			<td width="10%"><strong>Role</strong></td>
+			<td width="10%"><strong>Status</strong></td>
+		</tr>
+		<% for (let i = 0; i < page5spons_proj.length; i++) { %>
+			<tr>
+				<td><%= i + 1 %></td>
+				<td><%= page5spons_proj[i].agency %></td>				
+				<td><%= page5spons_proj[i].stitle %></td>
+				<td><%= page5spons_proj[i].samount %></td>
+				<td><%= page5spons_proj[i].speriod %></td>
+				<td><%= page5spons_proj[i].s_role %></td>
+				<td><%= page5spons_proj[i].s_status %></td>
+				
+			</tr>
+		<% } %>
+			</table>
+	<br />
+
+
+	<table class="tab">
+		<tr style="background-color:#f1f1f1;">
+			<td colspan="7"><strong class="tr_title">(B) Consultancy Projects</strong></td>
+		</tr>
+		
+		<tr>
+			<td width="5%"><strong>S. No.</strong></td>
+			<td width="20%"><strong>Organization</strong></td>
+			<td width="20%"><strong>Title of Project</strong></td>
+			<td width="15%"><strong>Amount of Grant</strong></td>
+			<td width="15%"><strong>Period</strong></td>
+			<td width="15%"><strong>Role</strong></td>
+			<td width="15%"><strong>Status</strong></td>
+		</tr>
+		<% for (let i = 0; i < page5consult_proj.length; i++) { %>
+			<tr>
+				<td><%= i + 1 %></td>
+				<td><%= page5consult_proj[i].c_org %></td>				
+				<td><%= page5consult_proj[i].ctitle %></td>
+				<td><%= page5consult_proj[i].camount %></td>
+				<td><%= page5consult_proj[i].cperiod %></td>
+				<td><%= page5consult_proj[i].c_role %></td>
+				<td><%= page5consult_proj[i].c_status %></td>
+				
+			</tr>
+		<% } %>
+			</table>
+	<br />
+	
+	
+		<span class="label">14. Significant research contribution and future plans</span>
+	<table class="tab">
+		<tr>
+			<td style="text-align:justify;"><%- page7[0].research_statement %></td>
+		</tr>
+
+	</table>
+	<br />
+
+	<span class="label">15. Significant teaching contribution and future plans</span>
+
+	<table class="tab">
+		
+		<tr>
+			<td style="text-align:justify;"><%- page7[0].teaching_statement %></td>
+		</tr>
+	</table>
+	<br />
+
+	<span class="label">16. Any other relevant information</span>
+	
+	<table class="tab">
+		<tr>
+			<td> <%- page7[0].rel_in %></td>
+		</tr>
+	</table>
+	<br />
+
+	<span class="label">17. Professional Service as Reviewer/Editor etc.</span>
+	<table class="tab">
+		<tr>
+			<td><%- page7[0].prof_serv %></td>
+		</tr>
+	</table>
+	<br />
+
+	<span class="label">18. Detailed List of Journal Publications<br />(Including Sr. No., Author's Names, Paper Title, Volume, Issue, Year, Page Nos., Impact Factor (if any), DOI, Status [Published/Accepted])</span>
+	<table class="tab">
+		<tr><td><%- page7[0].jour_details %></td>
+		</tr>
+	</table>
+	<br />
+
+	<span class="label">19. Detailed List of Conference Publications<br />(Including Sr. No.,  Author's Names, Paper Title, Name of the conference, Year, Page Nos., DOI [If any])</span>
+	<table class="tab">
+		<tr>conf_details
+			<td><%- page7[0].conf_details %></td>
+		</tr>
+	</table>
+	<br />
+
+	<span class="label">20. Reprints of 5 Best Research Papers-Attached </span>
+	
+	<br />
+	<br />
+
+	<span class="label">21. Check List of the documents attached with the online application </span><br />
+
+	1. PHD Certificate<br />
+	2. PG Certificate<br />
+	3. UG Certificate<br />
+	4. 12th/HSC/Diploma<br />
+	5. 10th/SSC Certificate<br />
+	6. 10 Years Post phd Experience Certificate <br />
+	7. Any other relevant documents ( Experience Certificate, Award Certificate, etc.)
+	<br />
+	<br />
+
+
+	<span class="label">22. Referees</span>
+	<table class="tab">
+		<tr style="background-color:#f1f1f1;">
+			<td colspan="6"><strong class="tr_title">Details of Referees</strong></td>
+		</tr>
+
+		<tr>
+			<!-- <td><strong>S. No.</strong></td> -->
+			<td width="20%"><strong>Name</strong></td>
+			<td width="20%"><strong>Position</strong></td>
+			<td width="15%"><strong>Association with Referee</strong></td>
+			<td width="15%"><strong>Institution/<br />Organization</strong></td>
+			<td width="15%"><strong>E-mail</strong></td>
+			<td width="15%"><strong>Contact No.</strong></td>
+		</tr>
+		<% for (let i = 0; i < page8referees.length; i++) { %>
+			<tr>
+				<td><%= page8referees[i].ref_name %></td>				
+				<td><%= page8referees[i].position %></td>
+			
+				<td><%= page8referees[i].association_referee %></td>
+				<td><%= page8referees[i].org %></td>
+				<td><%= page8referees[i].email %></td>
+				<td><%= page8referees[i].phone %></td>
+				
+			</tr>
+		<% } %>
+			</table>
+	<br />
+
+	
+
+	
+	<span class="label">23. Final Declaration</span>
+
+	<table class="tab">
+		
+		<td>                I hereby declare that I have carefully read and understood the instructions and particulars mentioned in the advertisment and this application form. I further declare that all the entries along with the attachments uploaded in this form are true to the best of my knowledge and belief</td>
+	</table>
+	<br />
+	
+		<img src="/uploadedfile/<%= page8uploads[0].userfile5 %>" alt="Signature" style="height:130px; width: 170px; "/><br />
+	Signature of Applicant
+
+	</div>
+	
+	
+	<div id="non_print_area">
+		<button onclick="window.location.href='http://localhost:8080/page9?applicationNo=<%=app_num%>'">Back</button>
+		<button onclick="window.print();">Print Application</button> <br />
+	</div>
+	</div>
+</div>
+	
+<style>
+@media print
+{    
+    #non_print_area
+    {
+        display: none !important;
+    }
+}
+</style>
+</body>
